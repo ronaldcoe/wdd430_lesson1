@@ -32,13 +32,14 @@ export default function AddTaskPage(){
             <div className="shadow-md p-8 rounded-md">
                 
                 <div className="flex flex-col">
-                    <h1 className="text-slate-800 font-bold text-xl">Tasks</h1>
+                    <h1 className="text-slate-800 font-bold text-xl bg-slate-200 p-2 rounded-md shadow-sm border">Tasks</h1>
                         <div className='max-h-60 overflow-scroll'>
-                            {tasks.map((task, index) => (
-                                <p key={index} className='w-full p-2 my-2 shadow-sm'>{task}</p>
-                            ))}
+                            {tasks?tasks.map((task, index) => (
+                                <p key={index} className='w-full p-2 my-2  border rounded-md bg-slate-50'>{task}</p>
+                            )):<p>No tasks</p>}
                         </div>
-                    <h1 className="text-slate-800 mt-8 text-sm">Add Task</h1>
+                        <hr  className='mt-8'/>
+                    <h1 className="text-slate-800 mt-2 text-sm">Add Task</h1>
                     <input type="text" className="border rounded mt-2 p-2" placeholder="Add a new task"
                         onChange={(e:React.ChangeEvent<HTMLInputElement>)=>setNewTask(e.target.value)}
                     />
